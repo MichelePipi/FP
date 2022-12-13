@@ -11,7 +11,9 @@ import cloud.commandframework.paper.PaperCommandManager;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.michelepip.funplugin.cmd.HelpCommand;
 
 import java.util.function.Function;
 
@@ -20,6 +22,7 @@ public final class FunPlugin extends JavaPlugin {
     private PaperCommandManager<CommandSender> manager;
     private AnnotationParser<CommandSender> annotationParser;
     private Function<ParserParameters, CommandMeta> commandMetaFunction;
+    private static MinecraftHelp<CommandSender> help;
     private final BukkitAudiences audiences = BukkitAudiences.create(this);
 
     @Override
@@ -58,15 +61,21 @@ public final class FunPlugin extends JavaPlugin {
                 .withDecorator(message -> Component.text("").append(Component.space()).append(message))
                 .apply(manager, audiences::sender);
 
-        new MinecraftHelp<CommandSender>(
+        help = new MinecraftHelp<CommandSender>(
                 "/fphelp help",
                 audiences::sender,
                 manager
         );
+
+        annotationParser.parse(new HelpCommand());
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public static void queryHelp(String query, Player recipient) {
+        help.queryCommands(query, recipient);
     }
 }
