@@ -30,12 +30,14 @@ jobs:
       # build the jars
       - name: Build Jars
         run: mvn clean install
+      - name: Set env
+        run: echo "git_hash=$git_hash"
       # create a development build
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "dev-${{ env.snapshotVersion }}-${{ env.git_hash }}"
+          automatic_release_tag: "dev-${{ env.git_hash }}"
           prerelease: true
           title: "Development Build"
           files: |
