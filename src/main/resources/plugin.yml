@@ -1,0 +1,7 @@
+name: FunPlugin
+version: '${project.version}'
+main: xyz.michelepip.funplugin.FunPlugin
+api-version: 1.19
+authors: [ MichelePipi ]
+description: Fun Plugin using my new favourite library
+website: michelepip.xyz
