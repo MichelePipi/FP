@@ -1,0 +1,47 @@
+
+name: "Prerelease"
+on:
+  push:
+    # Run on the main branch
+    branches:
+      - "dev"
+    # Ignore documentation
+    paths-ignore:
+      - ".idea"
+      - "README.md"
+      - "docs/**"
+
+
+jobs:
+  pre-release:
+    name: "Pre-release"
+    runs-on: ubuntu-latest
+    steps:
+      # clone our repository into the runner
+      - uses: actions/checkout@v3
+      - name: Set up JDK 18
+        uses: actions/setup-java@v3
+        with:
+          java-version: '18'
+          distribution: 'zulu'
+      # make sure that our plugin builds
+      - name: Build Project
+        run: mvn compile
+      # build the jars
+      - name: Build Jars
+        run: mvn clean install
+      - name: Set env
+        run: |
+          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+          echo "git_hash=$git_hash" >> $GITHUB_ENV
+      # create a development build
+      - name: Release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "dev"
+          prerelease: true
+          title: "dev-build-${{ env.git_hash }}"
+          files: |
+            target/*.jar
+            LICENSE
