@@ -32,6 +32,7 @@ jobs:
         run: mvn clean install
       - name: Set env
         run: |
+          git_hash=$(git rev-parse --short "$GITHUB_SHA")
           echo "git_hash=$git_hash" >> $GITHUB_ENV
       # create a development build
       - name: Release
