@@ -32,8 +32,6 @@ public final class FunPlugin extends JavaPlugin {
     private static MinecraftHelp<CommandSender> help;
     private BukkitAudiences audiences;
 
-    private FunPlugin(){}
-
     @Override
     public void onEnable() {
         // Plugin startup logic
