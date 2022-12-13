@@ -31,7 +31,8 @@ jobs:
       - name: Build Jars
         run: mvn clean install
       - name: Set env
-        run: echo "git_hash=$git_hash"
+        run: |
+          echo "git_hash=$git_hash"
       # create a development build
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
