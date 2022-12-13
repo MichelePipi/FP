@@ -14,6 +14,6 @@ public class HelpCommand {
     public void help(
             @NotNull Player sender,
             @NotNull @Argument("query") String query) {
-        FunPlugin.queryHelp(query == null ? "" : query, sender);
+        FunPlugin.queryHelp(query, sender);
     }
 }
