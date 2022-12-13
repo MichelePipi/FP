@@ -18,6 +18,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.michelepip.funplugin.cmd.HelpCommand;
 import xyz.michelepip.funplugin.cmd.msg.MessageCommand;
+import xyz.michelepip.funplugin.cmd.msg.ReplyCommand;
 
 import java.util.function.Function;
 
@@ -30,6 +31,8 @@ public final class FunPlugin extends JavaPlugin {
     private Function<ParserParameters, CommandMeta> commandMetaFunction;
     private static MinecraftHelp<CommandSender> help;
     private BukkitAudiences audiences;
+
+    private FunPlugin(){}
 
     @Override
     public void onEnable() {
@@ -99,5 +102,6 @@ public final class FunPlugin extends JavaPlugin {
     private void initCommands() {
         annotationParser.parse(new HelpCommand());
         annotationParser.parse(new MessageCommand());
+        annotationParser.parse(new ReplyCommand());
     }
 }
