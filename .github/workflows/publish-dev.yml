@@ -43,4 +43,4 @@ jobs:
           title: "dev-build-${{ env.git_hash }}"
           files: |
             target/*.jar
-            LICENSE.txt
+            LICENSE
