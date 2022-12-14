@@ -1,6 +1,6 @@
 name: FP
 version: '${project.version}'
-main: xyz.michelepip.funplugin.FunPlugin
+main: xyz.michelepip.fp.FP
 api-version: 1.19
 authors: [ MichelePipi ]
 description: Cloud Command Framework Plugin
