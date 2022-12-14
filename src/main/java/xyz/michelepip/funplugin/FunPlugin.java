@@ -3,6 +3,7 @@ package xyz.michelepip.funplugin;
 import cloud.commandframework.annotations.AnnotationParser;
 import cloud.commandframework.arguments.parser.ParserParameters;
 import cloud.commandframework.arguments.parser.StandardParameters;
+import cloud.commandframework.bukkit.BukkitCommandManager;
 import cloud.commandframework.bukkit.CloudBukkitCapabilities;
 import cloud.commandframework.execution.CommandExecutionCoordinator;
 import cloud.commandframework.meta.CommandMeta;
@@ -16,8 +17,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.michelepip.funplugin.cmd.HelpCommand;
+import xyz.michelepip.funplugin.cmd.msg.MessageCommand;
+import xyz.michelepip.funplugin.cmd.msg.ReplyCommand;
 
 import java.util.function.Function;
+
+import static net.kyori.adventure.text.Component.text;
 
 public final class FunPlugin extends JavaPlugin {
 
@@ -32,7 +37,7 @@ public final class FunPlugin extends JavaPlugin {
         // Plugin startup logic
         audiences = BukkitAudiences.create(this);
         try {
-            manager = new PaperCommandManager<>(
+            manager = new PaperCommandManager<CommandSender>(
                     this,
                     CommandExecutionCoordinator.simpleCoordinator(),
                     Function.identity(),
@@ -66,7 +71,12 @@ public final class FunPlugin extends JavaPlugin {
                 .withInvalidSyntaxHandler()
                 .withNoPermissionHandler()
                 .withCommandExecutionHandler()
-                .withDecorator(message -> Component.space().append(message))
+                .withDecorator(
+                        component -> text()
+                                .append(text("[", NamedTextColor.DARK_GRAY))
+                                .append(text("Example", NamedTextColor.GOLD))
+                                .append(text("] ", NamedTextColor.DARK_GRAY))
+                                .append(component).build())
                 .apply(manager, audiences::sender);
 
         help = new MinecraftHelp<CommandSender>(
@@ -89,5 +99,7 @@ public final class FunPlugin extends JavaPlugin {
 
     private void initCommands() {
         annotationParser.parse(new HelpCommand());
+        annotationParser.parse(new MessageCommand());
+        annotationParser.parse(new ReplyCommand());
     }
 }
