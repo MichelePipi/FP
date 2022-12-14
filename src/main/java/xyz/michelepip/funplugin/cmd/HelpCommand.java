@@ -9,6 +9,7 @@ import xyz.michelepip.funplugin.FunPlugin;
 
 public class HelpCommand {
 
+    @SuppressWarnings("unused")
     @CommandMethod("fphelp <query>")
     @CommandDescription("Description of commands for FunPlugin.")
     public void help(
