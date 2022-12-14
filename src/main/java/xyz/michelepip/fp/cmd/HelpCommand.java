@@ -1,11 +1,11 @@
-package xyz.michelepip.funplugin.cmd;
+package xyz.michelepip.fp.cmd;
 
 import cloud.commandframework.annotations.Argument;
 import cloud.commandframework.annotations.CommandDescription;
 import cloud.commandframework.annotations.CommandMethod;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import xyz.michelepip.funplugin.FunPlugin;
+import xyz.michelepip.fp.FP;
 
 public class HelpCommand {
 
@@ -15,6 +15,6 @@ public class HelpCommand {
     public void help(
             @NotNull Player sender,
             @NotNull @Argument("query") String query) {
-        FunPlugin.queryHelp(query, sender);
+        FP.queryHelp(query, sender);
     }
 }

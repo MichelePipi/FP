@@ -1,4 +1,4 @@
-package xyz.michelepip.funplugin;
+package xyz.michelepip.fp;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

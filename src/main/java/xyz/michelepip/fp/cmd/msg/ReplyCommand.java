@@ -1,4 +1,4 @@
-package xyz.michelepip.funplugin.cmd.msg;
+package xyz.michelepip.fp.cmd.msg;
 
 import cloud.commandframework.annotations.Argument;
 import cloud.commandframework.annotations.CommandDescription;
@@ -6,7 +6,7 @@ import cloud.commandframework.annotations.CommandMethod;
 import cloud.commandframework.annotations.specifier.Greedy;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import xyz.michelepip.funplugin.C;
+import xyz.michelepip.fp.C;
 
 import java.util.Map;
 
