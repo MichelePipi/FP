@@ -3,7 +3,6 @@ package xyz.michelepip.funplugin;
 import cloud.commandframework.annotations.AnnotationParser;
 import cloud.commandframework.arguments.parser.ParserParameters;
 import cloud.commandframework.arguments.parser.StandardParameters;
-import cloud.commandframework.bukkit.BukkitCommandManager;
 import cloud.commandframework.bukkit.CloudBukkitCapabilities;
 import cloud.commandframework.execution.CommandExecutionCoordinator;
 import cloud.commandframework.meta.CommandMeta;
@@ -11,7 +10,6 @@ import cloud.commandframework.minecraft.extras.MinecraftExceptionHandler;
 import cloud.commandframework.minecraft.extras.MinecraftHelp;
 import cloud.commandframework.paper.PaperCommandManager;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -73,9 +71,9 @@ public final class FunPlugin extends JavaPlugin {
                 .withCommandExecutionHandler()
                 .withDecorator(
                         component -> text()
-                                .append(text("[", NamedTextColor.DARK_GRAY))
-                                .append(text("Example", NamedTextColor.GOLD))
-                                .append(text("] ", NamedTextColor.DARK_GRAY))
+                                .append(text("[", NamedTextColor.GRAY))
+                                .append(text("FP", NamedTextColor.DARK_GRAY))
+                                .append(text("] ", NamedTextColor.GRAY))
                                 .append(component).build())
                 .apply(manager, audiences::sender);
 
@@ -93,6 +91,7 @@ public final class FunPlugin extends JavaPlugin {
         // Plugin shutdown logic
     }
 
+    // Finds the
     public static void queryHelp(String query, Player recipient) {
         help.queryCommands(query, recipient);
     }
