@@ -91,6 +91,7 @@ public final class FP extends JavaPlugin {
         // Plugin shutdown logic
     }
 
+    // Finds the
     public static void queryHelp(String query, Player recipient) {
         help.queryCommands(query, recipient);
     }
