@@ -17,7 +17,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import xyz.michelepip.fp.cmd.HelpCommand;
 import xyz.michelepip.fp.cmd.msg.MessageCommand;
 import xyz.michelepip.fp.cmd.msg.ReplyCommand;
+import xyz.michelepip.fp.db.Db;
 
+import java.sql.SQLException;
 import java.util.function.Function;
 
 import static net.kyori.adventure.text.Component.text;
@@ -84,6 +86,12 @@ public final class FP extends JavaPlugin {
         );
 
         initCommands();
+        try {
+            System.out.println(Db.retData());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            this.getServer().getPluginManager().disablePlugin(this);
+        }
     }
 
     @Override
