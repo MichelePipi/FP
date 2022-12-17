@@ -22,7 +22,7 @@ import java.util.function.Function;
 
 import static net.kyori.adventure.text.Component.text;
 
-public final class FunPlugin extends JavaPlugin {
+public final class FP extends JavaPlugin {
 
     private PaperCommandManager<CommandSender> manager;
     private AnnotationParser<CommandSender> annotationParser;
