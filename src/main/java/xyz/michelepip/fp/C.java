@@ -1,15 +1,15 @@
-package xyz.michelepip.funplugin;
+package xyz.michelepip.fp;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class C {
 
-    public static String gray = String.valueOf(ChatColor.GRAY);
-    public static String darkGray = String.valueOf(ChatColor.DARK_GRAY);
-    public static String reset = String.valueOf(ChatColor.RESET);
+    public static final String gray = String.valueOf(ChatColor.GRAY);
+    public static final String darkGray = String.valueOf(ChatColor.DARK_GRAY);
+    public static final String reset = String.valueOf(ChatColor.RESET);
 
-    public static String prefix = gray + "[" + darkGray + "FP" + gray + "]";
+    public static final String prefix = gray + "[" + darkGray + "FP" + gray + "]";
 
     public static String format(String msg) {
         return ChatColor.translateAlternateColorCodes('&', msg);

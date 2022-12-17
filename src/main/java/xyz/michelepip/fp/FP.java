@@ -1,4 +1,4 @@
-package xyz.michelepip.funplugin;
+package xyz.michelepip.fp;
 
 import cloud.commandframework.annotations.AnnotationParser;
 import cloud.commandframework.arguments.parser.ParserParameters;
@@ -14,9 +14,9 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import xyz.michelepip.funplugin.cmd.HelpCommand;
-import xyz.michelepip.funplugin.cmd.msg.MessageCommand;
-import xyz.michelepip.funplugin.cmd.msg.ReplyCommand;
+import xyz.michelepip.fp.cmd.HelpCommand;
+import xyz.michelepip.fp.cmd.msg.MessageCommand;
+import xyz.michelepip.fp.cmd.msg.ReplyCommand;
 
 import java.util.function.Function;
 
