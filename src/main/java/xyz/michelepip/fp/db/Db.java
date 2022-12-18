@@ -12,7 +12,7 @@ import java.util.List;
 public class Db {
 
     private static String TABLE_QUERY = "CREATE TABLE IF NOT EXISTS \n" +
-            ""
+            "";
 
 
     private Db(){}
