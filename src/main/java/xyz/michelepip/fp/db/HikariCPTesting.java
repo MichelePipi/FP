@@ -28,13 +28,4 @@ public class HikariCPTesting {
     public static Connection getConnection() throws SQLException {
         return dataSource.getConnection();
     }
-
-
-    public static void main(String[] args) {
-        try {
-            System.out.println(Db.retData());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

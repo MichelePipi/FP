@@ -11,23 +11,13 @@ import java.util.List;
 
 public class Db {
 
+    private static String TABLE_QUERY = "CREATE TABLE IF NOT EXISTS \n" +
+            ""
+
 
     private Db(){}
 
+    public static void createData() {
 
-    @TestOnly
-    public static List<String> retData() throws SQLException {
-        List<String> out = new ArrayList<>();
-        try (Connection conn = HikariCPTesting.getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT * from a");
-             ResultSet results = ps.executeQuery()) {
-            while (results.next()) {
-                out.add(results.getString("aste"));
-                out.add(results.getString("a"));
-                out.add(results.getString("r"));
-                out.add(results.getString("h"));
-            }
-        }
-        return out;
     }
 }
